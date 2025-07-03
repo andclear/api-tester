@@ -4,6 +4,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: '老婆宝 API Key 测试工具',
   description: '测试 Gemini API Key 和自定义 API 的有效性',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
