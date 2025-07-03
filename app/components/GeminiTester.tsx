@@ -53,6 +53,14 @@ export default function GeminiTester() {
         }]
       }
 
+      // 为客户端测试设置30秒超时，服务端测试不设置超时
+      const controller = new AbortController()
+      let timeoutId: NodeJS.Timeout | undefined
+      
+      if (!useServerProxy) {
+        timeoutId = setTimeout(() => controller.abort(), 30000) // 30秒超时
+      }
+
       const response = await fetch(
         useServerProxy ? endpoint : `${endpoint}?key=${apiKey}`,
         {
@@ -61,9 +69,15 @@ export default function GeminiTester() {
             'Content-Type': 'application/json',
             ...(useServerProxy ? { 'X-API-Key': apiKey, 'X-Model': selectedModel } : {})
           },
-          body: JSON.stringify(requestBody)
+          body: JSON.stringify(requestBody),
+          signal: !useServerProxy ? controller.signal : undefined
         }
       )
+      
+      // 清除超时定时器
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
 
       if (response.ok) {
         return {
