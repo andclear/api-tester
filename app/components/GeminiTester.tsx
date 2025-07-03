@@ -321,13 +321,25 @@ export default function GeminiTester() {
                   conclusion.type === 'info' ? 'text-blue-500' :
                   'text-red-500'
                 }`} />
-                <div>
+                <div className="flex-1">
                   <h4 className="font-medium text-gray-900 dark:text-white mb-1">
                     测试结论
                   </h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
                     {conclusion.message}
                   </p>
+                  
+                  {/* 测试成功后的提示信息 */}
+                  {conclusion.type === 'success' && (
+                    <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded">
+                      <div className="flex items-start gap-2">
+                        <div className="text-blue-600 dark:text-blue-400 text-sm">💡</div>
+                        <div className="text-blue-700 dark:text-blue-300 text-sm">
+                          如果这里测试成功，但是酒馆中无法获取模型列表的话，可能是你的api信息没有保存在酒馆中。请重启你的酒馆，安卓用户需要把Termux挂小窗，然后再次测试。
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
