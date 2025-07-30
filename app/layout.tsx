@@ -4,6 +4,17 @@ import './globals.css'
 export const metadata: Metadata = {
   title: '老婆宝 API Key 测试工具',
   description: '测试 Gemini API Key 和自定义 API 的有效性',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    shortcut: '/favicon.ico'
+  },
+  manifest: '/manifest.json'
 }
 
 export default function RootLayout({
@@ -13,6 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="API测试工具" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      </head>
       <body className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 py-8">
           <header className="text-center mb-8">
