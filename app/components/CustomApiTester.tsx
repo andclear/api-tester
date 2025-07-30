@@ -1,7 +1,7 @@
 'use client'
 
+import { AlertCircle, CheckCircle, ExternalLink, Eye, EyeOff, Loader2, XCircle } from 'lucide-react'
 import { useState } from 'react'
-import { CheckCircle, XCircle, Loader2, AlertCircle, ExternalLink, Eye, EyeOff } from 'lucide-react'
 
 interface TestResult {
   success: boolean
@@ -374,6 +374,9 @@ export default function CustomApiTester() {
       <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
         自定义 API 测试
       </h2>
+      <h4>写轮询只是为了方便提示报错内容，实际上兼容所有OpenAI API接口的测试</h4>
+
+      <br />
       
       {/* 子标签页切换 */}
       <div className="flex mb-6 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">

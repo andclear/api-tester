@@ -1,7 +1,7 @@
 'use client'
 
+import { AlertCircle, CheckCircle, Eye, EyeOff, Loader2, XCircle } from 'lucide-react'
 import { useState } from 'react'
-import { CheckCircle, XCircle, Loader2, AlertCircle, Eye, EyeOff } from 'lucide-react'
 
 interface TestResult {
   success: boolean

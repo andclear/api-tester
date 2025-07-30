@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import GeminiTester from './components/GeminiTester'
 import CustomApiTester from './components/CustomApiTester'
+import GeminiTester from './components/GeminiTester'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'gemini' | 'custom'>('gemini')
@@ -25,7 +25,7 @@ export default function Home() {
             activeTab === 'custom' ? 'tab-active' : 'tab-inactive'
           }`}
         >
-          自定义 API 测试（轮询）
+          自定义 API 测试
         </button>
       </div>
 
